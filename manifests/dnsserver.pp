@@ -5,7 +5,10 @@ define dnsmasq::dnsserver (
   $domain = undef,
   $port = undef,
 ) {
-  if !is_ip_address($ip) { fail("Expect IP address for ip, got ${ip}") }
+
+  if !is_array($ip) {
+    if !is_ip_address($ip) { fail("Expect IP address for ip, got ${ip}") }
+  }
 
   $domain_real = $domain ? {
     undef   => '',
