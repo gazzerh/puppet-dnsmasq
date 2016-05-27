@@ -1,8 +1,7 @@
-#server=<%= @domain_real %><%= @ip %><%= @port_real %>
-<% if @ips.kind_of?(Array) -%>
-<% @ips.each do |ip| -%>
-server=<%= @domain_real %><%= ip %><%= @port_real %>
+<% if @ip.kind_of?(Array) -%>
+<% @ip.each do |ip_address| -%>
+server=<%= @domain_real %><%= ip_address %><%= @port_real %>
 <% end -%>
 <% else -%>
-server=<%= @domain_real %><%= @ip %><%= @port_real %>
-<% end -%>
+server=<%= @domain_real %><%= ip_address %><%= @port_real %>
+<% end %>
